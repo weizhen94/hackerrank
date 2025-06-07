@@ -12,7 +12,7 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-class Result {
+class Result2 {
 
     /*
      * Complete the 'miniMaxSum' function below.
@@ -28,10 +28,10 @@ class Result {
     public static void miniMaxSum(List<Integer> arr) {
     // Write your code here
     arr.sort(null);
-    //System.out.println(arr);
+    System.out.println(arr);
     
-    int min = arr.get(0) + arr.get(1) + arr.get(2) + arr.get(3); 
-    int max = arr.get(4) + arr.get(1) + arr.get(2) + arr.get(3); 
+    long min = (long) arr.get(0) + arr.get(1) + arr.get(2) + arr.get(3); 
+    long max = (long) arr.get(4) + arr.get(1) + arr.get(2) + arr.get(3); 
     
     System.out.println(min + " " + max); 
     
@@ -41,15 +41,22 @@ class Result {
 
 public class MiniMaxSum {
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        // BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
-            .map(Integer::parseInt)
-            .collect(toList());
+        // List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+        //     .map(Integer::parseInt)
+        //     .collect(toList());
 
-        Result.miniMaxSum(arr);
+        List<Integer> arr = new LinkedList<>();
+        arr.add(256741038); 
+        arr.add(623958417); 
+        arr.add(467905213); 
+        arr.add(714532089); 
+        arr.add(938071625); 
 
-        bufferedReader.close();
+        Result2.miniMaxSum(arr);
+
+        //bufferedReader.close();
     }
 }
 
