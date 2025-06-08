@@ -12,7 +12,7 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-class TimeConversion {
+class Result {
 
     /*
      * Complete the 'timeConversion' function below.
@@ -92,14 +92,14 @@ Sample Output
 
 }
 
-public class Solution {
+public class TimeConversion {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
         String s = bufferedReader.readLine();
 
-        String result = TimeConversion.timeConversion(s);
+        String result = Result.timeConversion(s);
 
         bufferedWriter.write(result);
         bufferedWriter.newLine();
