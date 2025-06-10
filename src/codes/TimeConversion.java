@@ -12,7 +12,7 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-class Result {
+class Result3 {
 
     /*
      * Complete the 'timeConversion' function below.
@@ -99,7 +99,7 @@ public class TimeConversion {
 
         String s = bufferedReader.readLine();
 
-        String result = Result.timeConversion(s);
+        String result = Result3.timeConversion(s);
 
         bufferedWriter.write(result);
         bufferedWriter.newLine();

@@ -3,7 +3,7 @@ package codes;
 import java.io.*;
 import java.util.*;
 
-class Result {
+class Result4 {
 
     /*
      * Complete the 'lonelyinteger' function below.
@@ -51,10 +51,10 @@ class Result {
                 //a.remove(j);
                 
             } 
-            // else {
-            //     currentNumber = a.get(i); 
+             else {
+                currentNumber = a.get(i); 
             //     System.out.println("Current number is: " + currentNumber); 
-            // }
+             }
             
         
         
@@ -84,7 +84,7 @@ public class LonelyInteger {
         //     .map(Integer::parseInt)
         //     .collect(toList());
 
-        int result = Result.lonelyinteger(a);
+        int result = Result4.lonelyinteger(a);
 
         // bufferedWriter.write(String.valueOf(result));
         // bufferedWriter.newLine();
