@@ -16,53 +16,52 @@ class Result4 {
     // Write your code here
     //System.out.println(a); 
 
-    a.sort(null); 
+    //a.sort(null); 
     
-    int currentNumber = 0;  
+    // int currentNumber = 0;  
+
+    List<Integer> b = new LinkedList<>(); 
     
     for(int i = 0; i < a.size(); i++){
         
         //currentNumber = a.get(i); 
         System.out.println("i = " + i + ". a.get(i) = " + a.get(i)); 
 
-        for(int j = 1; j < a.size(); j++){
+        for(int j = i + 1; j < a.size(); j++){
 
           System.out.println("j = " + j + ". a.get(j) = " + a.get(j)); 
 
-          if(a.get(i) != a.get(j)){
+          if(a.get(i) == a.get(j)){
 
-              if(i == 0){
-                System.out.println("inside (i == 0): a.get(i) = " + a.get(i) + ". a.get(i+1) = " + a.get(i+1)); 
-                currentNumber = a.get(i);
-                System.out.println("Current number is: " + currentNumber); 
-              }
-
-              if(i + 2 < a.size() && a.get(j) != a.get(j+1)){
-                System.out.println("inside (a.get(i+1) != a.get(i+2): a.get(i) = " + a.get(i) + ". a.get(i+1) = " + a.get(i+1) + ". a.get(i+2) = " + a.get(i+2)); 
-                currentNumber = a.get(i+1);
-                System.out.println("Current number is: " + currentNumber); 
-              }
-
-              if(j == a.size() - 1){
-                System.out.println("inside (i == a.size() - 1): a.get(i) = " + a.get(i) + ". a.get(i+1) = " + a.get(i+1)); 
-                currentNumber = a.get(i+1);
-                System.out.println("Current number is: " + currentNumber); 
-              }
-
-              System.out.println("Not inside any of the if statements. i is " + i + ". a.get(i) = " + a.get(i) + ". j is " + j + ". a.get(j) = " + a.get(j)); 
-                
-                //System.out.println("i is: " + i + ".  is: " + j + ". a.get(i) is: " + a.get(i) + ". a.get(j) is: " + a.get(j)); 
-                
-                //System.out.println(a.get(j)); 
-
-                //a.remove(j);
-                
-            }
+            b.add(a.get(j)); 
+            System.out.println("removed j = " + j + ". a.get(j) = " + a.get(j)); 
+            a.remove(j);
+          }
 
         }
         
     }
-    //System.out.println("Current number is: " + currentNumber); 
+
+    for(int k = 0; k < a.size(); k++){
+
+      System.out.println("k = " + k + ". a.get(k) = " + a.get(k)); 
+
+      for(int l = 0; l < b.size(); l++){
+
+        System.out.println("l = " + l + ". b.get(l) = " + b.get(l)); 
+
+        if(a.get(k) == b.get(l)){
+
+          System.out.println("removed k = " + k + ". a.get(k) = " + a.get(k)); 
+          a.remove(k); 
+
+        }
+
+      }
+
+    }
+     int currentNumber = a.get(0); 
+     System.out.println("Current number is: " + currentNumber); 
     return currentNumber; 
     }
 
