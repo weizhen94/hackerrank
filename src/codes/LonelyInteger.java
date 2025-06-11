@@ -20,11 +20,16 @@ class Result4 {
     
     int currentNumber = 0;  
     
-    for(int i = 0; i < a.size() - 1; i++){
+    for(int i = 0; i < a.size(); i++){
         
         //currentNumber = a.get(i); 
-            
-            if(a.get(i) != a.get(i+1)){
+        System.out.println("i = " + i + ". a.get(i) = " + a.get(i)); 
+
+        for(int j = 1; j < a.size(); j++){
+
+          System.out.println("j = " + j + ". a.get(j) = " + a.get(j)); 
+
+          if(a.get(i) != a.get(j)){
 
               if(i == 0){
                 System.out.println("inside (i == 0): a.get(i) = " + a.get(i) + ". a.get(i+1) = " + a.get(i+1)); 
@@ -32,17 +37,19 @@ class Result4 {
                 System.out.println("Current number is: " + currentNumber); 
               }
 
-              if(i + 2 < a.size() && a.get(i+1) != a.get(i+2)){
+              if(i + 2 < a.size() && a.get(j) != a.get(j+1)){
                 System.out.println("inside (a.get(i+1) != a.get(i+2): a.get(i) = " + a.get(i) + ". a.get(i+1) = " + a.get(i+1) + ". a.get(i+2) = " + a.get(i+2)); 
                 currentNumber = a.get(i+1);
                 System.out.println("Current number is: " + currentNumber); 
               }
 
-              if(i == a.size() - 1){
+              if(j == a.size() - 1){
                 System.out.println("inside (i == a.size() - 1): a.get(i) = " + a.get(i) + ". a.get(i+1) = " + a.get(i+1)); 
                 currentNumber = a.get(i+1);
                 System.out.println("Current number is: " + currentNumber); 
               }
+
+              System.out.println("Not inside any of the if statements. i is " + i + ". a.get(i) = " + a.get(i) + ". j is " + j + ". a.get(j) = " + a.get(j)); 
                 
                 //System.out.println("i is: " + i + ".  is: " + j + ". a.get(i) is: " + a.get(i) + ". a.get(j) is: " + a.get(j)); 
                 
@@ -50,13 +57,9 @@ class Result4 {
 
                 //a.remove(j);
                 
-            } 
-             else {
-                currentNumber = a.get(i); 
-            //     System.out.println("Current number is: " + currentNumber); 
-             }
-            
-        
+            }
+
+        }
         
     }
     //System.out.println("Current number is: " + currentNumber); 
@@ -85,6 +88,8 @@ public class LonelyInteger {
         //     .collect(toList());
 
         int result = Result4.lonelyinteger(a);
+
+        System.out.println("Lonely integer is: " + result);
 
         // bufferedWriter.write(String.valueOf(result));
         // bufferedWriter.newLine();
