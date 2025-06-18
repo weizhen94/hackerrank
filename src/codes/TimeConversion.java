@@ -95,16 +95,18 @@ Sample Output
 public class TimeConversion {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        //BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        String s = bufferedReader.readLine();
+        String s = bufferedReader.readLine().trim();
 
         String result = Result3.timeConversion(s);
 
-        bufferedWriter.write(result);
-        bufferedWriter.newLine();
+        System.out.println(result); 
+
+        //bufferedWriter.write(result);
+        //bufferedWriter.newLine();
 
         bufferedReader.close();
-        bufferedWriter.close();
+        //bufferedWriter.close();
     }
 }

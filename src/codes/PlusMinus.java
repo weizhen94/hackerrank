@@ -49,6 +49,8 @@ proportion of zeros
 
     public static void plusMinus(List<Integer> arr) {
     // Write your code here
+
+    System.out.println("This is the list: " + arr);
     
     double positive = 0; 
     double negative = 0; 
@@ -84,6 +86,7 @@ public class PlusMinus {
 
         int n = Integer.parseInt(bufferedReader.readLine().trim());
 
+        //very nice way to convert String[] to List of Integer, wonder if I can do other conversions with it
         List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
             .map(Integer::parseInt)
             .collect(toList());

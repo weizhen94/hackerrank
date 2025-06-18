@@ -1,5 +1,7 @@
 package revision;
 
+import java.util.Arrays;
+
 public class Conversion {
 
     public static void main(String args[]){
@@ -55,6 +57,28 @@ public class Conversion {
         if(s.substring(8).equals("PM")){ //for string cannot ==, need to do .equals
             System.out.println("This is .equals output " + s.substring(8)); 
         }
+
+        //to split a string
+        String i = "is the end"; 
+        String[] a = i.split(" "); 
+        System.out.println("This is the split string: " + Arrays.toString(a));
+        System.out.println("This is the individual split string: " + a[0]);
+
+        //to split a string
+        String j = "is,the,end"; 
+        String[] b1 = j.split(","); 
+        System.out.println("This is the split string: " + Arrays.toString(b1));
+        System.out.println("This is the individual split string: " + b1[1]);
+
+        String input = "  a b  c d  ";
+        String result = input.trim().replaceAll("\\s+", " ");
+        System.out.println(result); 
+
+        //Removes all leading and trailing whitespace, Doesn't touch spaces within the string.
+        String s1 = "   hello world   ";
+        String result1 = s1.trim();  // "hello world"
+        System.out.println(s1);
+        System.out.println(result1);
     }
     
 }
