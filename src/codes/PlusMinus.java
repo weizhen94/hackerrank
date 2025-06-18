@@ -86,7 +86,7 @@ public class PlusMinus {
 
         int n = Integer.parseInt(bufferedReader.readLine().trim());
 
-        //very nice way to convert String[] to List of Integer, wonder if I can do other conversions with it
+        //very nice way to convert string to String[] to List of Integer, wonder if I can do other conversions with it
         List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
             .map(Integer::parseInt)
             .collect(toList());

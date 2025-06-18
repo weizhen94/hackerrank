@@ -1,6 +1,10 @@
 package revision;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class Conversion {
 
@@ -79,6 +83,22 @@ public class Conversion {
         String result1 = s1.trim();  // "hello world"
         System.out.println(s1);
         System.out.println(result1);
+
+        //convert string to List<Integer>
+        String lines = "1 2 3 4 5"; 
+        List<Integer> arr = Stream.of(lines.replaceAll("\\s+$", "").split(" "))
+            .map(Integer::parseInt)
+            .collect(toList());
+
+        System.out.println(arr);
+
+        //convert string to a List<String>
+        String fruits = "Apple Orange Pear"; 
+        List<String> arr1 = Stream.of(fruits.replaceAll("\\s+$", "").split(" "))
+            .collect(toList());
+        
+        System.out.println(arr1);
+        
     }
     
 }
