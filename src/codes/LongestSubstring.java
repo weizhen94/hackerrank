@@ -5,8 +5,10 @@ import java.util.Scanner;
 public class LongestSubstring {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String s = scanner.nextLine();
+        //Scanner scanner = new Scanner(System.in);
+        //String s = scanner.nextLine();
+
+        String s = "AaaBBbbCCcc"; 
         
         int[] result = findLongestRepeatingSubstring(s);
         
@@ -22,6 +24,8 @@ public class LongestSubstring {
      */
     public static int[] findLongestRepeatingSubstring(String s) {
         // Your code here
+        String sLower = s.toLowerCase(); 
+        System.out.println(sLower); 
         return new int[]{0, 0}; // Placeholder return
     }
 }
