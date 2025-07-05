@@ -41,12 +41,14 @@ class matrix2_1 {
             sequence.add(matrix.get(i).get(j)); 
             System.out.println("matrix.get(i).get(n-j-1)" + matrix.get(i).get(n-j-1));
             sequence.add(matrix.get(i).get(n-j-1)); 
-            System.out.println("matrix.get(n-j-1).get(n-j-1)" + matrix.get(n-j-1).get(n-j-1));
-            sequence.add(matrix.get(n-j-1).get(n-j-1)); 
-            System.out.println("matrix.get(n-j-1).get(j)" + matrix.get(n-j-1).get(j));
-            sequence.add(matrix.get(n-j-1).get(j)); 
+            System.out.println("matrix.get(n-j-1).get(n-j-1)" + matrix.get(n-i-1).get(n-j-1));
+            sequence.add(matrix.get(n-i-1).get(n-j-1)); 
+            System.out.println("matrix.get(n-j-1).get(j)" + matrix.get(n-i-1).get(j));
+            sequence.add(matrix.get(n-i-1).get(j)); 
             sequence.sort(null);
+            System.out.println("sequence is: " + sequence);
             toAdd.add(sequence.peekLast()); 
+            sequence.clear(); 
         }
     }
 
