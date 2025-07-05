@@ -9,7 +9,7 @@ public class LongestSubstring {
         //Scanner scanner = new Scanner(System.in);
         //String s = scanner.nextLine();
 
-        String s = "AaaBBbCCcc"; 
+        String s = "abcde"; 
         
         int[] result = findLongestRepeatingSubstring(s);
         
