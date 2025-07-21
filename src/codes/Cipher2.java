@@ -1,18 +1,8 @@
 package codes;
 
 import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.function.*;
-import java.util.regex.*;
-import java.util.stream.*;
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.toList;
 
-class Result {
+class cipher_2 {
 
     /*
      * Complete the 'caesarCipher' function below.
@@ -95,44 +85,65 @@ z -> b
     
     for(int i = 0; i < s.length(); i++){
         for(int j = 0; j < originalLower.length(); j++){
-            if(s.charAt(i) == '-'){
-                cipher = cipher + "-"; 
-                i = i + 1; 
-            }
+            // if(s.charAt(i) == '-'){
+            //     cipher = cipher + "-"; 
+            //     i = i + 1; 
+            // }
+
+            // if(String.valueOf(s.charAt(i)).matches("\\p{Punct}")){
+            //     System.out.println(s.charAt(i)); 
+            //     cipher = cipher + s.charAt(i); 
+            //     i = i + 1; 
+            //     if(i == s.length()-1){
+            //         j = originalLower.length(); 
+            //     }
+            // }
             
             if(Character.isLowerCase(s.charAt(i)) && s.charAt(i) == (originalLower.charAt(j))){
                 cipher = cipher + rotatedLower.charAt(j); 
-            }
-            
-            if(Character.isUpperCase(s.charAt(i)) && s.charAt(i) == (originalUpper.charAt(j))){
+            } else if (Character.isUpperCase(s.charAt(i)) && s.charAt(i) == (originalUpper.charAt(j))){
                 cipher = cipher + rotatedUpper.charAt(j); 
+            } else if (String.valueOf(s.charAt(i)).matches("\\p{Punct}")){
+                cipher = cipher + s.charAt(i);
+                j = originalLower.length();
+            } else if (Character.isDigit(s.charAt(i))){
+                cipher = cipher + s.charAt(i);
+                j = originalLower.length();
             }
         }
     }
     
     return cipher;  
     }
-
 }
 
-public class Cipher2 {
+    public class Cipher2 {
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        // BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        // BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        int n = Integer.parseInt(bufferedReader.readLine().trim());
+        // int n = Integer.parseInt(bufferedReader.readLine().trim());
 
-        String s = bufferedReader.readLine();
+        // String s = bufferedReader.readLine();
 
-        int k = Integer.parseInt(bufferedReader.readLine().trim());
+        // int k = Integer.parseInt(bufferedReader.readLine().trim());
 
-        String result = Result.caesarCipher(s, k);
+        // String result = Result.caesarCipher(s, k);
 
-        bufferedWriter.write(result);
-        bufferedWriter.newLine();
+        String s = "159357lcfd";
+        int k = 98;
 
-        bufferedReader.close();
-        bufferedWriter.close();
+        String result = cipher_2.caesarCipher(s, k);
+
+        System.out.println(result);
+
+        // bufferedWriter.write(result);
+        // bufferedWriter.newLine();
+
+        // bufferedReader.close();
+        // bufferedWriter.close();
     }
+
+    
 }
 
