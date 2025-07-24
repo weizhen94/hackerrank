@@ -23,27 +23,64 @@ class grid1 {
 
     public static String gridChallenge(List<String> grid) {
     // Write your code here
-    char[] eachLine = new char[grid.size()]; 
+        System.out.println(grid); 
+    // Write your code here
+    //LinkedList<String> eachLine = new LinkedList<>(); 
     String line = ""; 
     LinkedList<String> sortedGrid = new LinkedList<>(); 
+    LinkedList<String> firstLetter = new LinkedList<>(); 
+    //LinkedList<String> sortedFirstLetter = new LinkedList<>(); 
     
     for(int i = 0; i < grid.size(); i++){
         line = grid.get(i); 
+        LinkedList<String> eachLine = new LinkedList<>();
         for(int j = 0; j < grid.size(); j++){
-            eachLine[j] = line.charAt(j); 
+            if(j < grid.size()-1){
+                eachLine.add(line.substring(j, j + 1)); 
+            } else {
+                eachLine.add(line.substring(grid.size()-1)); 
+            }
         }
-        Arrays.sort(eachLine); 
-        System.out.println(Arrays.toString(eachLine));
+        eachLine.sort(null); 
+        //System.out.println(eachLine);
         String sortedLine = ""; 
-        for(int k = 0; k < eachLine.length; k++){
-            sortedLine = sortedLine + eachLine[k]; 
+        for(int k = 0; k < eachLine.size(); k++){
+            sortedLine = sortedLine + eachLine.get(k); 
+            if(k == 0){
+                firstLetter.add(eachLine.get(k)); 
+            }
         }
         sortedGrid.add(sortedLine); 
     }
     
-    System.out.println(sortedGrid);
+    //System.out.println(firstLetter);
     
-    return ""; 
+    String oFL = ""; 
+    
+    for(String fL : firstLetter){
+        fL = fL + firstLetter; 
+        oFL = fL; 
+    }
+    
+    //System.out.println(oFL);
+    
+    firstLetter.sort(null); 
+    
+    String oSFL = ""; 
+    
+    for(String sFL : firstLetter){
+        //sortedFirstLetter.add(sFL);
+        sFL = sFL + firstLetter;
+        oSFL = sFL; 
+    }
+    
+    //System.out.println(oSFL);
+    
+    if(oFL.equals(oSFL)){
+        return "YES"; 
+    } else {
+        return "NO";
+    }
 
     }
 
