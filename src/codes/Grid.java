@@ -24,7 +24,48 @@ class grid1 {
     public static String gridChallenge(List<String> grid) {
     // Write your code here
         System.out.println(grid); 
-    // Write your code here
+        grid.size(); 
+        String length = grid.get(0); 
+        length.length(); 
+        if(grid.size() == length.length()){
+            return gridChallengeMechanism(grid); 
+        } else {
+            int total = grid.size();
+            int count = 0; 
+            List<String> answer = new LinkedList<>(); 
+            while(total > 0){
+                System.out.println("total: " + total);
+                System.out.println("count: " + count);
+                String length2 = grid.get(count); 
+                int part = length2.length(); 
+
+            List<String> newGrid = new LinkedList<>(); 
+            for(int i = 0; i < length2.length(); i++){
+                newGrid.add(grid.get(i)); 
+            }
+
+            answer.add(gridChallengeMechanism(newGrid));
+            System.out.println(answer); 
+
+            total = total - part;
+            count = total - 1; 
+            }
+
+            if(answer.size() > 0){
+                for(String giveAnswer : answer){
+                return giveAnswer; 
+                } 
+            } else {
+                return ""; 
+            }
+            return ""; 
+        }
+
+    }
+
+    public static String gridChallengeMechanism(List<String> grid){
+
+        // Write your code here
     //LinkedList<String> eachLine = new LinkedList<>(); 
     String line = ""; 
     LinkedList<String> sortedGrid = new LinkedList<>(); 
@@ -62,7 +103,7 @@ class grid1 {
         oFL = fL; 
     }
     
-    //System.out.println(oFL);
+    System.out.println(oFL);
     
     firstLetter.sort(null); 
     
@@ -74,7 +115,7 @@ class grid1 {
         oSFL = sFL; 
     }
     
-    //System.out.println(oSFL);
+    System.out.println(oSFL);
     
     if(oFL.equals(oSFL)){
         return "YES"; 
@@ -88,35 +129,44 @@ class grid1 {
 
 public class Grid {
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        // BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        // BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        int t = Integer.parseInt(bufferedReader.readLine().trim());
+        // int t = Integer.parseInt(bufferedReader.readLine().trim());
 
-        IntStream.range(0, t).forEach(tItr -> {
-            try {
-                int n = Integer.parseInt(bufferedReader.readLine().trim());
+        // IntStream.range(0, t).forEach(tItr -> {
+        //     try {
+        //         int n = Integer.parseInt(bufferedReader.readLine().trim());
 
-                List<String> grid = IntStream.range(0, n).mapToObj(i -> {
-                    try {
-                        return bufferedReader.readLine();
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                })
-                    .collect(toList());
+        //         List<String> grid = IntStream.range(0, n).mapToObj(i -> {
+        //             try {
+        //                 return bufferedReader.readLine();
+        //             } catch (IOException ex) {
+        //                 throw new RuntimeException(ex);
+        //             }
+        //         })
+        //             .collect(toList());
+
+                List<String> grid = new LinkedList<String>();
+                grid.add("kc"); 
+                grid.add("iu"); 
+                grid.add("uxf"); 
+                grid.add("vof"); 
+                grid.add("hmp"); 
 
                 String result = grid1.gridChallenge(grid);
 
-                bufferedWriter.write(result);
-                bufferedWriter.newLine();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
+                System.out.println(result); 
 
-        bufferedReader.close();
-        bufferedWriter.close();
+        //         bufferedWriter.write(result);
+        //         bufferedWriter.newLine();
+        //     } catch (IOException ex) {
+        //         throw new RuntimeException(ex);
+        //     }
+        // });
+
+        // bufferedReader.close();
+        // bufferedWriter.close();
     }
 }
 
