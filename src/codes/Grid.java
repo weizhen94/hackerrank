@@ -148,8 +148,8 @@ public class Grid {
         //             .collect(toList());
 
                 List<String> grid = new LinkedList<String>();
-                grid.add("kc"); 
-                grid.add("iu"); 
+                // grid.add("kc"); 
+                // grid.add("iu"); 
                 grid.add("uxf"); 
                 grid.add("vof"); 
                 grid.add("hmp"); 

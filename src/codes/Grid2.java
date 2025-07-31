@@ -12,7 +12,7 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-class Result {
+class grid_2 {
 
     /*
      * Complete the 'gridChallenge' function below.
@@ -22,18 +22,16 @@ class Result {
      */
 
     public static String gridChallenge(List<String> grid) {
-    System.out.println(grid); 
-    // Write your code here
-    //LinkedList<String> eachLine = new LinkedList<>(); 
+
     String line = ""; 
     LinkedList<String> sortedGrid = new LinkedList<>(); 
     LinkedList<String> firstLetter = new LinkedList<>(); 
-    //LinkedList<String> sortedFirstLetter = new LinkedList<>(); 
+
     
     for(int i = 0; i < grid.size(); i++){
         line = grid.get(i); 
         LinkedList<String> eachLine = new LinkedList<>();
-        for(int j = 0; j < grid.size(); j++){
+        for(int j = 0; j < line.length(); j++){
             if(j < grid.size()-1){
                 eachLine.add(line.substring(j, j + 1)); 
             } else {
@@ -43,42 +41,79 @@ class Result {
         eachLine.sort(null); 
         //System.out.println(eachLine);
         String sortedLine = ""; 
-        for(int k = 0; k < eachLine.size(); k++){
+        for(int k = 0; k < line.length(); k++){
             sortedLine = sortedLine + eachLine.get(k); 
-            if(k == 0){
-                firstLetter.add(eachLine.get(k)); 
-            }
         }
         sortedGrid.add(sortedLine); 
+
     }
-    
-    //System.out.println(firstLetter);
-    
-    String oFL = ""; 
-    
-    for(String fL : firstLetter){
-        fL = fL + firstLetter; 
-        oFL = fL; 
+
+    System.out.println("sortedGrid is : " + sortedGrid);
+
+    int charAmount = sortedGrid.get(0).length(); 
+    int count = 0; 
+
+    List<String> answer = new LinkedList<>(); 
+
+    int i = 0; 
+    while(count < sortedGrid.size()){
+
+        if(i < charAmount - 1){
+            //System.out.println("count is : " + count);
+            firstLetter.add(sortedGrid.get(count).substring(i, i+1)); 
+            //System.out.println("firstLetter is : " + firstLetter);
+            count++; 
+            //System.out.println("count++ is : " + count);
+        } else {
+            firstLetter.add(sortedGrid.get(count).substring(i)); 
+            count++; 
+        }
+        
+        if(sortedGrid.size() == count){
+
+            String oFL = ""; 
+
+            for(int j = 0; j < firstLetter.size(); j++){
+                 oFL = oFL + firstLetter.get(j); 
+            }
+
+            //System.out.println("oFL is : " + oFL);
+
+            firstLetter.sort(null); 
+
+            String oSFL = ""; 
+
+            for(int j = 0; j < firstLetter.size(); j++){
+            oSFL = oSFL + firstLetter.get(j); 
+            }
+
+            firstLetter.clear();
+
+            //System.out.println("oSFL is : " + oSFL);
+
+            if(!oFL.equals(oSFL)){
+                answer.add("NO"); 
+                count = sortedGrid.size();
+            } else {
+                answer.add("YES"); 
+                count = 0; 
+                i++; 
+            }
+
+            //System.out.println("answer inside is : " + answer);
+
+            if(i == charAmount){
+                count = sortedGrid.size();
+            }
+        }
     }
-    
-    //System.out.println(oFL);
-    
-    firstLetter.sort(null); 
-    
-    String oSFL = ""; 
-    
-    for(String sFL : firstLetter){
-        //sortedFirstLetter.add(sFL);
-        sFL = sFL + firstLetter;
-        oSFL = sFL; 
-    }
-    
-    //System.out.println(oSFL);
-    
-    if(oFL.equals(oSFL)){
-        return "YES"; 
+
+    //System.out.println("answer is : " + answer);
+
+    if(answer.contains("NO")){
+        return "NO"; 
     } else {
-        return "NO";
+        return "YES"; 
     }
 
     }
@@ -87,35 +122,70 @@ class Result {
 
 public class Grid2 {
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+         // BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        // BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        int t = Integer.parseInt(bufferedReader.readLine().trim());
+        // int t = Integer.parseInt(bufferedReader.readLine().trim());
 
-        IntStream.range(0, t).forEach(tItr -> {
-            try {
-                int n = Integer.parseInt(bufferedReader.readLine().trim());
+        // IntStream.range(0, t).forEach(tItr -> {
+        //     try {
+        //         int n = Integer.parseInt(bufferedReader.readLine().trim());
 
-                List<String> grid = IntStream.range(0, n).mapToObj(i -> {
-                    try {
-                        return bufferedReader.readLine();
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                })
-                    .collect(toList());
+        //         List<String> grid = IntStream.range(0, n).mapToObj(i -> {
+        //             try {
+        //                 return bufferedReader.readLine();
+        //             } catch (IOException ex) {
+        //                 throw new RuntimeException(ex);
+        //             }
+        //         })
+        //             .collect(toList());
 
-                String result = Result.gridChallenge(grid);
+                List<String> grid = new LinkedList<String>();
+                // grid.add("kc"); 
+                // grid.add("iu"); 
 
-                bufferedWriter.write(result);
-                bufferedWriter.newLine();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
+                // grid.add("ppp"); 
+                // grid.add("ypp"); 
+                // grid.add("wyw"); 
 
-        bufferedReader.close();
-        bufferedWriter.close();
+                // grid.add("lyivr"); 
+                // grid.add("jgfew"); 
+                // grid.add("uweor"); 
+                // grid.add("qxwyr"); 
+                // grid.add("uikjd"); 
+
+                //grid.add("l"); 
+
+                //Yes
+                // grid.add("abc"); 
+                // grid.add("lmp"); 
+                // grid.add("qrt"); 
+
+                //No
+                // grid.add("mpxz"); 
+                // grid.add("abcd"); 
+                // grid.add("wlmf"); 
+
+                //yes
+                grid.add("abc"); 
+                grid.add("hjk"); 
+                grid.add("mpq"); 
+                grid.add("rtv"); 
+
+
+                String result = grid_2.gridChallenge(grid);
+
+                System.out.println(result); 
+
+        //         bufferedWriter.write(result);
+        //         bufferedWriter.newLine();
+        //     } catch (IOException ex) {
+        //         throw new RuntimeException(ex);
+        //     }
+        // });
+
+        // bufferedReader.close();
+        // bufferedWriter.close();
     }
 }
 
