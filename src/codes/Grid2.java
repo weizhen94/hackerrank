@@ -59,16 +59,19 @@ class grid_2 {
     int i = 0; 
     while(count < sortedGrid.size()){
 
-        if(i < charAmount - 1){
-            System.out.println("count is : " + count);
-            firstLetter.add(sortedGrid.get(count).substring(i, i+1)); 
-            System.out.println("firstLetter is : " + firstLetter);
-            count++; 
-            System.out.println("count++ is : " + count);
-        } else {
-            firstLetter.add(sortedGrid.get(count).substring(i)); 
-            count++; 
-        }
+        // if(i < charAmount - 1){
+        //     System.out.println("count is : " + count);
+        //     firstLetter.add(sortedGrid.get(count).substring(i, i+1)); 
+        //     System.out.println("firstLetter is : " + firstLetter);
+        //     count++; 
+        //     System.out.println("count++ is : " + count);
+        // } else {
+        //     firstLetter.add(sortedGrid.get(count).substring(i)); 
+        //     count++; 
+        // }
+
+        firstLetter.add(sortedGrid.get(count).substring(i, i+1)); 
+        count++; 
         
         if(sortedGrid.size() == count){
 
