@@ -75,6 +75,8 @@ class grid_2 {
         
         if(sortedGrid.size() == count){
 
+            System.out.println("count is: " + count); 
+
             String oFL = ""; 
 
             for(int j = 0; j < firstLetter.size(); j++){
@@ -97,7 +99,7 @@ class grid_2 {
 
             if(!oFL.equals(oSFL)){
                 answer.add("NO"); 
-                count = sortedGrid.size();
+                //count = sortedGrid.size();
             } else {
                 answer.add("YES"); 
                 count = 0; 
@@ -166,15 +168,15 @@ public class Grid2 {
                 // grid.add("qrt"); 
 
                 //No
-                // grid.add("mpxz"); 
-                // grid.add("abcd"); 
-                // grid.add("wlmf"); 
+                grid.add("mpxz"); 
+                grid.add("abcd"); 
+                grid.add("wlmf"); 
 
                 //yes
-                grid.add("abc"); 
-                grid.add("hjk"); 
-                grid.add("mpq"); 
-                grid.add("rtv"); 
+                // grid.add("abc"); 
+                // grid.add("hjk"); 
+                // grid.add("mpq"); 
+                // grid.add("rtv"); 
 
 
                 String result = grid_2.gridChallenge(grid);
