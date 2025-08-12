@@ -12,7 +12,9 @@ public class Arraylist {
         fruits.add("Apple");
         fruits.add("Banana");
         fruits.add("Cherry");
-        System.out.println(fruits); // [Apple, Banana, Cherry]
+
+        ArrayList<String> fruit = new ArrayList<>(fruits);
+        System.out.println(fruit); // [Apple, Banana, Cherry]
 
     }
     
