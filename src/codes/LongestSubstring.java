@@ -32,6 +32,7 @@ public class LongestSubstring {
         
         for(int i = 0; i < sLower.length(); i++){
             letters[i] = sLower.substring(i, i+1); 
+            String name = letters[i] + letters[i + 1]; 
         }
 
         int localLength = 1; 
