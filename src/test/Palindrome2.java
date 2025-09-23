@@ -51,6 +51,10 @@ public class Palindrome2 {
 
     public static void main(String[] args){
         String input = "aabe";
+        // String input = "abracecars";
+        // String input = "abccdef";
+        // String input = "abcdef";
+        // String input = "a";
         Palindrome2 palindrome2 = new Palindrome2(); 
         System.out.println(palindrome2.palindrome(input)); 
     }
