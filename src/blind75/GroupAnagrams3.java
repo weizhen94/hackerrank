@@ -29,10 +29,7 @@ public class GroupAnagrams3 {
         }
 
         Collection<List<String>> returned2 = map.values();
-        List<List<String>> returned = new ArrayList<List<String>>(); 
-        for(List<String> s : returned2){
-            returned.add(s); 
-        }
+        List<List<String>> returned = new ArrayList<>(returned2); 
 
         return returned; 
     }
