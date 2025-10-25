@@ -36,7 +36,8 @@ public class longestSequence {
         for(int i : nums){
             intSet.add(i); 
         }
-        int[] treated = intSet.stream().mapToInt(Integer::intValue).toArray();
+        //int[] treated = intSet.stream().mapToInt(Integer::intValue).toArray();
+        Integer[] treated = intSet.toArray(new Integer[0]);
         
         int prevNums = 0; 
         int len = 0; 

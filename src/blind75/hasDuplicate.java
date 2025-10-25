@@ -15,7 +15,6 @@ public class hasDuplicate {
             System.out.println("int is: " + i + ". count is: " + checkDup.get(i));
             if(checkDup.get(i) > 1) return true;  
         }
-
-        return false; 
+        return false;
     }
 }
