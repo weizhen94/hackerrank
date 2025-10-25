@@ -31,11 +31,13 @@ public class ValidPalindrome {
 
         public boolean isPalindrome(String s) {
 
-        // or can do char[] c = s.toLowerCase().replaceAll("[^a-z0-9]", "").toCharArray(); 
+        // or can do String replaced = s.toLowerCase().replaceAll(" ", "").replaceAll("\\p{Punct}", "").toCharArray(); 
         // use [^A-Za-z0-9] if you want to keep the capital letters
-        char[] c = s.toLowerCase().replaceAll(" ", "").replaceAll("\\p{Punct}", "").toCharArray(); 
+        String replaced = s.toLowerCase().replaceAll("[^a-z0-9]", "");
+        
+        char[] c = replaced.toCharArray(); 
 
-        if(Arrays.toString(c).equals("[]")){
+        if(replaced.isBlank()){
             return true;
         }
 
