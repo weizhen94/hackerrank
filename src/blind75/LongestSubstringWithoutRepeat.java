@@ -11,75 +11,95 @@ import java.util.Set;
 
 public class LongestSubstringWithoutRepeat {
 
+// Given a string s, find the length of the longest substring without duplicate characters.
+
+// A substring is a contiguous sequence of characters within a string.
+
+// Example 1:
+
+// Input: s = "zxyzxyz"
+
+// Output: 3
+// Explanation: The string "xyz" is the longest without duplicate characters.
+
+// Example 2:
+
+// Input: s = "xxxx"
+
+// Output: 1
+// Constraints:
+
+// 0 <= s.length <= 1000
+// s may consist of printable ASCII characters.
+
     public int lengthOfLongestSubstring(String s) {
 
-        // char[] c = s.toCharArray();
-        // List<Character> list = new ArrayList<>(); 
-        // for(char chars : c){
-        //     list.add(chars);
+        // int ans = 0; 
+        // int finalAns = 0; 
+
+        // for(int i = s.length(); i >= 0; i--){
+        //     for(int j = 0; i + j <= s.length(); j++){
+        //         System.out.println("i is: " + i + ". j is: " + j);
+        //         String sub = s.substring(j,i+j);
+        //         System.out.println("sub is: " + sub);
+        //         char[] c = sub.toCharArray();
+        //         List<Character> list = new LinkedList<>(); 
+        //         for(char chars : c){
+        //             list.add(chars);
+        //         }
+        //         Set<Character> filter = new LinkedHashSet<>(list); 
+
+        //         list.clear();
+        //         Iterator<Character> iterator = filter.iterator();
+        //         while(iterator.hasNext()){
+        //             list.add(iterator.next());
+        //         }
+
+        //         char[] d = new char[list.size()];
+        //         for(int k = 0; k < list.size(); k++){
+        //             d[k] = list.get(k);
+        //             ans++;
+        //         System.out.println("ans is: " + ans);
+        //         }
+
+        //         String compare = new String(d);
+        //         System.out.println("compare is: " + compare);
+
+        //         if(sub.equals(compare)){
+        //             System.out.println("inside sub.equals(compare)");
+        //             if(ans>finalAns){
+        //                 finalAns = ans;   
+        //             }
+        //         }
+
+        //         ans = 0; 
+        //     }
         // }
-        // Set<Character> filter = new HashSet<>(list); 
 
-        // list.clear();
-        // Iterator<Character> iterator = filter.iterator();
-        // while(iterator.hasNext()){
-        //     list.add(iterator.next());
-        // }
-
-        // String sub = String.valueOf(list.get(0));
-
-        // int i = 0; 
-        // while(i < list.size()-1 && s.contains(sub)){
-        //     i++;
-        //     sub = sub + String.valueOf(list.get(i));
-        // }
-
-        // return i+1; 
-
-        int ans = 0; 
-        int finalAns = 0; 
-
-        for(int i = s.length(); i >= 0; i--){
-            for(int j = 0; i + j <= s.length(); j++){
-                System.out.println("i is: " + i + ". j is: " + j);
-                String sub = s.substring(j,i+j);
-                System.out.println("sub is: " + sub);
-                char[] c = sub.toCharArray();
-                List<Character> list = new LinkedList<>(); 
-                for(char chars : c){
-                    list.add(chars);
-                }
-                Set<Character> filter = new LinkedHashSet<>(list); 
-
-                list.clear();
-                Iterator<Character> iterator = filter.iterator();
-                while(iterator.hasNext()){
-                    list.add(iterator.next());
-                }
-
-                char[] d = new char[list.size()];
-                for(int k = 0; k < list.size(); k++){
-                    d[k] = list.get(k);
-                    ans++;
-                System.out.println("ans is: " + ans);
-                }
-
-                String compare = new String(d);
-                System.out.println("compare is: " + compare);
-
-                if(sub.equals(compare)){
-                    System.out.println("inside sub.equals(compare)");
-                    if(ans>finalAns){
-                        finalAns = ans;   
-                    }
-                }
-
-                ans = 0; 
-            }
-        }
-
-        return finalAns; 
+        // return finalAns; 
         
+    int n = s.length();
+    int best = 0;
+    int left = 0;
+    Set<Character> seen = new LinkedHashSet<>();
+
+    for (int right = 0; right < n; right++) {
+        System.out.println("right is:" + right);
+        System.out.println("left is:" + left);
+        char c = s.charAt(right);
+        System.out.println("c is:" + c);
+        while (seen.contains(c)) {
+            System.out.println("removing: "+ s.charAt(left));
+            seen.remove(s.charAt(left));
+            left++;
+            System.out.println("new left is:" + left);
+        }
+        seen.add(c);
+        System.out.println("seen is:" + seen);
+        best = Math.max(best, right - left + 1);
+        System.out.println("best is:" + best);
+    }
+    return best;
     }
 
     public static void main(String[] args){
