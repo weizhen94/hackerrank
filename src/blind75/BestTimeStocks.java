@@ -47,5 +47,55 @@ public class BestTimeStocks {
         return maxProfit;
         
     }
+
+    //alternative using Math.max
+    public int maxProfitBetter(int[] prices) {
+
+        int maxProfit = 0; 
+
+        for(int i = 0; i < prices.length; i++){
+            for(int k = i+1; k < prices.length; k++){
+                maxProfit = Math.max(maxProfit, prices[k]-prices[i]);
+            }
+        }
+
+        return maxProfit;
+        
+    }
+
+
+    // using 2 pointers
+    public int maxProfitPointers(int[] prices) {
+
+        int l = 0, r = 1; 
+        int maxProfit = 0; 
+
+        while(r < prices.length){
+            if(prices[l]<prices[r]){
+                maxProfit = Math.max(maxProfit, prices[r]-prices[l]);
+            } else {
+                l = r; 
+            }
+            r++;
+        }
+
+        return maxProfit;
+        
+    }
+
+    // using dynamic programming
+    public int maxProfitDP(int[] prices) {
+
+        int buy = prices[0];
+        int maxProfit = 0; 
+
+        for(int sell : prices){
+            maxProfit = Math.max(maxProfit, sell - buy);
+            buy = Math.min(buy, sell);
+        }
+
+        return maxProfit;
+        
+    }
     
 }
