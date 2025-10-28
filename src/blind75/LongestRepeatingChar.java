@@ -1,5 +1,6 @@
 package blind75;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -49,6 +50,26 @@ public class LongestRepeatingChar{
         }
 
         return 0; 
+    }
+
+    public int characterReplacement2Pointer(String s, int k) {
+
+        int l = 0, maxf = 0, res = 0;
+        Map<Character, Integer> map = new HashMap<>();
+
+        for(int r = 0; r < s.length(); r++){
+            map.put(s.charAt(r), map.getOrDefault(s.charAt(r), 0)+1);
+            maxf = Math.max(maxf, map.get(s.charAt(r)));
+
+            if((r - l +1) - maxf > k){
+                map.put(s.charAt(r), map.get(s.charAt(r))-1);
+                l++;
+            }
+
+            res = Math.max(res, (r-l+1));
+        }
+
+        return res;
     }
     
 }
