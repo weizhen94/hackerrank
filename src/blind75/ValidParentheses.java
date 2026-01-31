@@ -47,4 +47,16 @@ public class ValidParentheses {
 
     }
 
+    public boolean checkBracketBackward(int i, String s, char c){
+
+        if(i-1 >= 0 && s.charAt(i-1) == c) return true; 
+
+        if(!s.contains(String.valueOf(c))) return false; 
+
+        if(i > s.length()-1-i && s.charAt(s.length()-1-i) == c) return true; 
+
+        return false; 
+
+    }
+
 }
